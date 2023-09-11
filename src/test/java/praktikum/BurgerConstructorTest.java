@@ -52,6 +52,25 @@ public class BurgerConstructorTest {
         assertThat(actualTabText, is(expectedTabText));
     }
 
+    @DisplayName("Проверка перехода на таб Булки")
+    @Description("Клик по табу Булки делает его активным ")
+    @Test
+    public void bunTabClickMakeItActive() {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.openPage();
+        mainPage.waitMainPageIsOpen();
+
+        mainPage.clickFillingTab();
+
+        mainPage.waitTabIsSwitchedToFillings();
+
+        mainPage.clickBunTab();
+
+        String actualTabText = driver.findElement(activeElement).getText();
+        String expectedTabText = "Булки";
+        assertThat(actualTabText, is(expectedTabText));
+    }
+
     @DisplayName("Проверка таба Соусы")
     @Description("Клик по табу Соусы делает его активным ")
     @Test
